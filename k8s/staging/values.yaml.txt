@@ -1,0 +1,23 @@
+appName: my-service
+namespace: staging
+replicas: 2
+image:
+  repository: ghcr.io/ashwanisrivastava71/my-service
+  tag: staging-latest
+environment: staging
+
+config:
+  NEXT_PUBLIC_API_URL: https://staging.api.mycompany.com
+  LOG_LEVEL: debug
+
+secrets:
+  AUTH_SECRET: staging-auth-secret
+  DB_PASSWORD: staging-db-pass
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"

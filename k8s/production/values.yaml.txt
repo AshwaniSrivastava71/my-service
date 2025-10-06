@@ -1,0 +1,23 @@
+appName: my-service
+namespace: production
+replicas: 3
+image:
+  repository: ghcr.io/ashwanisrivastava71/my-service
+  tag: prod-latest
+environment: production
+
+config:
+  NEXT_PUBLIC_API_URL: https://api.mycompany.com
+  LOG_LEVEL: info
+
+secrets:
+  AUTH_SECRET: prod-auth-secret
+  DB_PASSWORD: prod-db-pass
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1Gi"
+    cpu: "1"
